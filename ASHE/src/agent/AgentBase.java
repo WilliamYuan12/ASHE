@@ -54,6 +54,10 @@ public abstract class AgentBase {
 	protected String peek() {
 		return myHoleCards == null ? null : myHoleCards.toString();
 	}
+	
+	protected boolean button() {
+		return position == 1;
+	}
 
 	String parse(String msg) throws Exception {
 		if (msg == null || !msg.startsWith("MATCHSTATE"))
@@ -124,7 +128,7 @@ public abstract class AgentBase {
 	}
 
 	private Result processLastMove() {
-		if (lastMove == null || lastMove instanceof Check)
+		if (lastMove == null)
 			return null;
 		if (lastMove instanceof Fold) {
 			noMoreAction = true;

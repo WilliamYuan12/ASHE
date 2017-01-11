@@ -87,7 +87,7 @@ public class Ashe extends AgentBase {
 	}
 
 	protected void newGame() {
-		forest.prepare();
+		forest.prepare(button() ? 0 : 1);
 	}
 
 	protected void observeAction(ActionBase action) {

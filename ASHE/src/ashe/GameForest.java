@@ -29,7 +29,7 @@ class GameForest implements Statistician {
 		for (int i = 0; i < trees.length; i++)
 			trees[i] = new GameTree(reader.readLine());
 		reader.close();
-		prepare();
+		prepare(-1);
 	}
 	
 	public String toString() {
@@ -56,12 +56,12 @@ class GameForest implements Statistician {
 	void reset() {
 		for (int i = 0; i < trees.length; i++)
 			trees[i] = new GameTree(i);
-		prepare();
+		prepare(-1);
 	}
 
-	void prepare() {
+	void prepare(int position) {
 		stage = 0;
-		position = -1;
+		this.position = position;
 		intel.reset();
 		boards[0] = "";
 		for (int i = 1; i < boards.length; i++)
