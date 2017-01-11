@@ -27,7 +27,7 @@ public abstract class AgentBase {
 
 	protected abstract void observeResult(Result result);
 
-	protected abstract ActionBase getAction();
+	protected abstract ActionBase getAction() throws Exception;
 
 	protected void init() {
 		gameID = -1;
@@ -45,6 +45,14 @@ public abstract class AgentBase {
 
 	protected int potSize() {
 		return myTotalBet + oppTotalBet;
+	}
+	
+	protected String getBoard() {
+		return board.toString();
+	}
+	
+	protected String peek() {
+		return myHoleCards == null ? null : myHoleCards.toString();
 	}
 
 	String parse(String msg) throws Exception {
@@ -78,10 +86,10 @@ public abstract class AgentBase {
 			result = new Showdown(board, myHoleCards, oppHoleCards, myTotalBet, oppTotalBet);
 			noMoreAction = true;
 		}
-		if (myTurn())
-			response = getResponse(msg, getAction());
 		if (result != null)
 			observeResult(result);
+		if (myTurn())
+			response = getResponse(msg, getAction());
 		return response;
 	}
 

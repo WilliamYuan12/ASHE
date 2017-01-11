@@ -2,7 +2,7 @@ package agent;
 
 public class Raise extends ActionBase {
 
-	Raise(int playerID, int raiseToAmt, int opponentTotalBet) {
+	public Raise(int playerID, int raiseToAmt, int opponentTotalBet) {
 		super(playerID);
 		this.raiserTotalBet = raiseToAmt;
 		this.opponentTotalBet = opponentTotalBet;

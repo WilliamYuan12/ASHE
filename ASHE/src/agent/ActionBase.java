@@ -10,5 +10,5 @@ public abstract class ActionBase {
 	
 	abstract String compress();
 	
-	int playerID;
+	public final int playerID;
 }

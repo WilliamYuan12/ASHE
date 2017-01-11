@@ -2,7 +2,7 @@ package agent;
 
 public class Fold extends ActionBase {
 
-	Fold(int playerID) {
+	public Fold(int playerID) {
 		super(playerID);
 	}
 
