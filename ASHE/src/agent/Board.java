@@ -3,9 +3,9 @@ package agent;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Board extends ArrayList<Card> {
+class Board extends ArrayList<Card> {
 	
-	public Board() {
+	Board() {
 		super();
 	}
 	
@@ -19,14 +19,14 @@ public class Board extends ArrayList<Card> {
 		return result;
 	}
 	
-	public String display() {
+	String display() {
 		String result = new String();
 		for (int i = 0; i < size(); i++) 
 			result += get(i);
 		return result;
 	}
 	
-	public void sort() {
+	void sort() {
 		Collections.sort(this);
 	}
 	

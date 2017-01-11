@@ -1,9 +1,9 @@
 package agent;
 import java.util.ArrayList;
 
-public class Hand extends ArrayList<Card>implements Comparable<Hand> {
+class Hand extends ArrayList<Card>implements Comparable<Hand> {
 
-	public Hand() {
+	Hand() {
 		super();
 		rank = -1;
 		holeCards = null;
@@ -28,15 +28,15 @@ public class Hand extends ArrayList<Card>implements Comparable<Hand> {
 		return true;
 	}
 	
-	public void setRank(int rank) {
+	void setRank(int rank) {
 		this.rank = rank;
 	}
 	
-	public int getRank() {
+	int getRank() {
 		return rank;
 	}
 	
-	public HoleCards getHoleCards() {
+	HoleCards getHoleCards() {
 		return holeCards;
 	}
 	
@@ -88,5 +88,5 @@ public class Hand extends ArrayList<Card>implements Comparable<Hand> {
 	private static final long serialVersionUID = 1L;
 	private int rank;
 	private HoleCards holeCards;
-	public static final int handSize = 5;
+	static final int handSize = 5;
 }

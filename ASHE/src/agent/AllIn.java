@@ -15,5 +15,5 @@ public class AllIn extends ActionBase {
 		return opponentTotalBet == Params.stackSize ? "c" : "r" + Params.stackSize;
 	}
 
-	public int opponentTotalBet;
+	public final int opponentTotalBet;
 }

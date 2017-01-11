@@ -67,17 +67,19 @@ public abstract class AgentBase {
 					position == 0 ? sessions[4].substring(0, barIdx) : sessions[4].substring(barIdx + 1), myID);
 			oppHoleCards = null;
 			newGame();
-		}	
+		}
 		Result result = null;
 		if (!noMoreAction) {
 			parseMoves(sessions[3]);
 			result = processLastMove();
 		}
 		parseCards(sessions[4]);
+		if (oppHoleCards != null && board.size() == 5) {
+			result = new Showdown(board, myHoleCards, oppHoleCards, myTotalBet, oppTotalBet);
+			noMoreAction = true;
+		}
 		if (myTurn())
 			response = getResponse(msg, getAction());
-		if (oppHoleCards != null && board.size() == 5)
-			result = new Showdown(board, myHoleCards, oppHoleCards, myTotalBet, oppTotalBet);
 		if (result != null)
 			observeResult(result);
 		return response;
@@ -169,9 +171,9 @@ public abstract class AgentBase {
 			return position == 0;
 		return lastMove.playerID == oppID;
 	}
-	
+
 	private String getResponse(String state, ActionBase action) {
-		return state + ":" + action;
+		return state + ":" + action.compress();
 	}
 
 	protected final int oppID = 0;
