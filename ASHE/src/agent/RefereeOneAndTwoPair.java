@@ -1,12 +1,12 @@
 package agent;
 
-public class RefereeOneAndTwoPair extends RefereeBase {
+class RefereeOneAndTwoPair extends RefereeBase {
 	
-	public RefereeOneAndTwoPair(Board board, HoleCards holeCards) throws Exception {
+	RefereeOneAndTwoPair(Board board, HoleCards holeCards) throws Exception {
 		super(board, holeCards);			
 	}
 
-	public Hand getBestHand() {
+	Hand getBestHand() {
 		int pairCnt = 0;
 		for (int i = 0; i < sorted.size() - 1 && pairCnt < 2;) {
 			if (sorted.get(i).getRank() == sorted.get(i + 1).getRank()) {

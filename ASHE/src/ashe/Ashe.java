@@ -174,7 +174,6 @@ public class Ashe extends AgentBase {
 
 	private ActionBase preflop(Vector<ActionBase> actions, Intel intel) throws Exception {
 		double handStrength = GameForest.evaluator.getHandStength(peek(), board());
-		// ON BUTTION
 		if (intel.button()) {
 			if (intel.getBetCnt() == 1) {
 				if (handStrength < 0.40) {

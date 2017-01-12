@@ -14,7 +14,7 @@ abstract class RefereeBase {
 		hand = null;
 	}
 	
-	public abstract Hand getBestHand();
+	abstract Hand getBestHand();
 
 	protected Hand sorted;
 	protected Hand hand;

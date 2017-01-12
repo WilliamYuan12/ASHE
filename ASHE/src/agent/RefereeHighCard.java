@@ -1,11 +1,11 @@
 package agent;
-public class RefereeHighCard extends RefereeBase {
+class RefereeHighCard extends RefereeBase {
 	
-	public RefereeHighCard(Board board, HoleCards holeCards) throws Exception {
+	RefereeHighCard(Board board, HoleCards holeCards) throws Exception {
 		super(board, holeCards);		
 	}
 	
-	public Hand getBestHand() {
+	Hand getBestHand() {
 		hand = new Hand();
 		hand.addAll(sorted);
 		while (hand.size() != 5)

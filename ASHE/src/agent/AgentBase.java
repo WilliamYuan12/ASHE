@@ -16,6 +16,26 @@ public abstract class AgentBase {
 		report += "<END: STATE REPORT>" + "\n";
 		return report;
 	}
+	
+	public void ACPCMatch(String[] args) throws Exception {
+		if (args.length != 2)
+			throw new Exception("Invalid args (args.length != 2).");
+		System.out.println("Dealer IP: " + args[0] + "\nPort: " + args[1]);
+		NetComm comm = new NetComm(args);
+		if (comm.connected())
+			System.out.println("Connection established.");
+		else 
+			throw new Exception("Failed to connect to dealer server.");
+		String msg = null;
+		newMatch();
+		for (msg = comm.receive(); msg != null; msg = comm.receive()) {
+			String response = parse(msg);
+			if (response != null)
+				comm.send(response);
+		}
+		System.out.println("Match completed!");
+		comm.close();
+	}
 
 	public abstract String getName();
 
@@ -52,7 +72,7 @@ public abstract class AgentBase {
 	}
 	
 	protected String peek() {
-		return myHoleCards == null ? null : myHoleCards.toString();
+		return myHoleCards.toString();
 	}
 	
 	protected boolean button() {
@@ -96,7 +116,7 @@ public abstract class AgentBase {
 			response = getResponse(msg, getAction());
 		return response;
 	}
-
+	
 	private void parseMoves(String moves) {
 		if (prevMoves != null) {
 			String newMove = moves.substring(prevMoves.length(),

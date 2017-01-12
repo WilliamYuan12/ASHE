@@ -1,14 +1,11 @@
 package agent;
 
-import java.util.Scanner;
-
 import ashe.Ashe;
 
-public class ACPCNoLimitHeadsUp {
+public class Test {
 	
 	public static void main(String[] args) {
 		try {
-			Scanner scanner = new Scanner(System.in);
 			AgentBase ashe = new Ashe(1);
 			ashe.newMatch();
 			String[] tests = {
@@ -43,7 +40,6 @@ public class ACPCNoLimitHeadsUp {
 				ashe.parse(tests[i]);
 				System.out.println(ashe.stateReport());
 			}
-			scanner.close();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

@@ -1,8 +1,8 @@
 package agent;
 
-public class Referee {
+class Referee {
 	
-	public static Hand getBestHand(Board board, HoleCards holeCards) throws Exception {
+	static Hand getBestHand(Board board, HoleCards holeCards) throws Exception {
 		Hand hand = computeBestHand(board, holeCards);
 		hand.setHoleCards(holeCards);
 		return hand;

@@ -1,11 +1,11 @@
 package agent;
 
-public class RefereeStraightFlushAndFlush extends RefereeBase {
-	public RefereeStraightFlushAndFlush(Board cards, HoleCards holeCards) throws Exception {
+class RefereeStraightFlushAndFlush extends RefereeBase {
+	RefereeStraightFlushAndFlush(Board cards, HoleCards holeCards) throws Exception {
 		super(cards, holeCards);
 	}
 
-	public Hand getBestHand() {
+	Hand getBestHand() {
 		Hand diamonds = new Hand();
 		Hand spades = new Hand();
 		Hand hearts = new Hand();

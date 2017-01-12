@@ -1,12 +1,12 @@
 package agent;
 
-public class RefereeFourOfAKind extends RefereeBase {
+class RefereeFourOfAKind extends RefereeBase {
 	
-	public RefereeFourOfAKind(Board board, HoleCards holeCards) throws Exception {
+	RefereeFourOfAKind(Board board, HoleCards holeCards) throws Exception {
 		super(board, holeCards);
 	}
 
-	public Hand getBestHand() {
+	Hand getBestHand() {
 		for (int i = 0, runner = 1; i < sorted.size() - 3; runner++) {
 			if (sorted.get(runner).getRank() != sorted.get(i).getRank()) i = runner;
 			else if (runner - i == 3) {

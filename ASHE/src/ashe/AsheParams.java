@@ -2,9 +2,9 @@ package ashe;
 
 public class AsheParams {
 	
-	//Hand Strength Database location ("/Volumes/My Passport/HSDB")
-	public static final String HSDBPath = "B:\\HSDB";
+	//Hand Strength Database location
+	public static final String HSDBPath = "../../HSDB";
 	
 	//Genome file location	
-	public static String GenomeFile = "AsheGenome.txt";
+	public static final String GenomeFile = "AsheGenome.txt";
 }

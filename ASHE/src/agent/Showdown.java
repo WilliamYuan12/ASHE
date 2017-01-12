@@ -1,6 +1,5 @@
 package agent;
 
-
 public class Showdown extends Result {
 
 	Showdown(Board board, HoleCards hc1, HoleCards hc2, int p1Bet, int p2Bet) throws Exception {
@@ -13,19 +12,19 @@ public class Showdown extends Result {
 		rankedID = new int[2];
 		if (h1.compareTo(h2) <= 0) {
 			rankedID[0] = hc1.ownerID;
-			holeCards[0] = hc1.toString();
 			hands[0] = h1.toString();
+			holeCards[0] = h1.getHoleCards().toString();
 			rankedID[1] = hc2.ownerID;
-			holeCards[1] = hc2.toString();
 			hands[1] = h2.toString();
+			holeCards[1] = h2.getHoleCards().toString();
 			winnerCnt = (h1.compareTo(h2) == 0) ? 2 : 1;
 		} else {
 			rankedID[0] = hc2.ownerID;
-			holeCards[0] = hc2.toString();
 			hands[0] = h2.toString();
+			holeCards[0] = h2.getHoleCards().toString();
 			rankedID[1] = hc1.ownerID;
-			holeCards[1] = hc1.toString();
 			hands[1] = h1.toString();
+			holeCards[1] = h1.getHoleCards().toString();
 			winnerCnt = 1;
 		}
 	}

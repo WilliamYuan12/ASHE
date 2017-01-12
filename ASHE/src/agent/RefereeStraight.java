@@ -1,12 +1,12 @@
 package agent;
 
-public class RefereeStraight extends RefereeBase {
+class RefereeStraight extends RefereeBase {
 
-	public RefereeStraight(Board board, HoleCards holeCards) throws Exception {
+	RefereeStraight(Board board, HoleCards holeCards) throws Exception {
 		super(board, holeCards);
 	}
 
-	public Hand getBestHand() {
+	Hand getBestHand() {
 		if (sorted.get(0).getRank() == 'A')
 			sorted.add(sorted.get(0));
 

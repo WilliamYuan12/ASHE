@@ -60,8 +60,9 @@ class GameForest implements Statistician {
 	}
 
 	void prepare(int position) {
-		stage = 0;
 		this.position = position;
+		stage = 0;
+		position = -1;
 		intel.reset();
 		boards[0] = "";
 		for (int i = 1; i < boards.length; i++)
@@ -69,8 +70,6 @@ class GameForest implements Statistician {
 	}
 
 	Intel getIntel() {
-		if (position == -1) 
-			position = 0;
 		NodeBase current = trees[index()].getCurrent();
 		if (current instanceof Root)
 			current.stats.frequency++;
@@ -79,8 +78,6 @@ class GameForest implements Statistician {
 	}
 
 	void updateAction(ActionBase actionInfo, String board) {
-		if (position == -1) 
-			position = 1;
 		if (actionInfo.playerID != myID && trees[index()].getCurrent() instanceof Root)
 			trees[index()].getCurrent().stats.frequency++;
 		if (boards[stage].equals("UNKNOWN"))
